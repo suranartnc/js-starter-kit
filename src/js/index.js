@@ -1,8 +1,6 @@
-const myObject = {
-	a: 1,
-	b: 2
-};
+import React from 'react'
+import ReactDOM from 'react-dom';
 
-let { a, b } = myObject;
+import App from './components/App';
 
-console.log(a);
+ReactDOM.render(<App />, document.getElementById('app'));
