@@ -1,1 +1,3 @@
-require('./src/js/index.js');
+require('babel-register');
+
+require('./src/js/server');
