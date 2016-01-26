@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -9,17 +10,20 @@ class BlogList extends Component {
 
 	constructor(props) {
 		super(props);
-		this.handleLoadMoreButton = this.handleLoadMoreButton.bind(this);
 	}
 
-	handleLoadMoreButton() {
-		this.props.loadMoreBooks(2);
+	static prefetchData = [BlogActions.getPosts];
+
+	componentDidMount() {
+		this.props.getPosts();
 	}
 
 	renderBlogs() {
 		return this.props.blogs.map((blog) => {
 			return (
-				<li key={blog.title}>{ blog.title }</li>
+				<li key={blog.question_id}>
+					<Link to={`blog/${blog.question_id}/`}>{ blog.title }</Link>
+				</li>
 			);
 		});
 	}
@@ -28,7 +32,6 @@ class BlogList extends Component {
 		return (
 			<div>
 				<ul>{ this.renderBlogs() }</ul>
-				<button onClick={ this.handleLoadMoreButton }>Load more</button>
 			</div>
 		);
 	}

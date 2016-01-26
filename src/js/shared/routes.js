@@ -8,6 +8,6 @@ import BlogDetail from './containers/Blog/BlogDetail';
 export default (
   <Route component={App} path="/">
     <Route component={BlogList} path="blog" />
-    <Route component={BlogDetail} path="blog/:slug" />
+    <Route component={BlogDetail} path="blog/:question_id" />
   </Route>
 );
