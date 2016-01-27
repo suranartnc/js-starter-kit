@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/suranartnc/js-starter-kit#readme",
   "devDependencies": {
+    "babel-plugin-react-transform": "^2.0.0",
+    "react-transform-catch-errors": "^1.0.1",
+    "react-transform-hmr": "^1.0.1",
+    "redbox-react": "^1.2.0",
     "webpack": "^1.12.11",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.6.4"

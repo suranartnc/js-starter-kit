@@ -3,7 +3,12 @@ var webpack = require('webpack');
 
 module.exports = {
 
-    entry: path.join(__dirname, 'src/js/client.js'),
+    devtool: 'cheap-module-eval-source-map',
+
+    entry: [
+        'webpack-hot-middleware/client',
+        path.resolve(__dirname, 'src/js/client.js')
+    ],
 
     output: {
         path: path.join(__dirname, 'public'),
@@ -16,17 +21,36 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                query: {
+                    "plugins": [
+                        ["react-transform", {
+                            "transforms": [
+                                {
+                                    "transform": "react-transform-hmr",
+                                    "imports": ["react"],
+                                    "locals": ["module"]
+                                }, {
+                                    "transform": "react-transform-catch-errors",
+                                    "imports": ["react", "redbox-react"]
+                                }
+                            ]
+                        }]
+                    ]
+
+                }
             }
         ]
     },
 
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 BROWSER: JSON.stringify(true),
                 NODE_ENV: JSON.stringify('development')
             }
-        }),
-    ],
+        })
+    ]
 };
