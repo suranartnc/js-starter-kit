@@ -14,7 +14,10 @@ class BlogDetail extends Component {
 	static prefetchData = [BlogActions.getThePost];
 
 	componentDidMount() {
-		this.props.getThePost(this.props.params);
+		// fetch API only if the content is not in the state yet
+		if (this.props.params.question_id != this.props.blog.question_id) {
+			this.props.getThePost(this.props.params);
+		}
 	}
 
 	render() {

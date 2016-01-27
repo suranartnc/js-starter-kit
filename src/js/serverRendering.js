@@ -46,7 +46,7 @@ export default function(req, res) {
           </head>
           <body>
             <div id="app">${componentHTML}</div>
-            <script src="/bundle.js"></script>
+            <script src="/assets/bundle.js"></script>
           </body>
         </html>    
       `

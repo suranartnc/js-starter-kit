@@ -15,7 +15,10 @@ class BlogList extends Component {
 	static prefetchData = [BlogActions.getPosts];
 
 	componentDidMount() {
-		this.props.getPosts();
+		// fetch API only if the content is not in the state yet
+		if (this.props.blogs.length == 0) {
+			this.props.getPosts();
+		}
 	}
 
 	renderBlogs() {
