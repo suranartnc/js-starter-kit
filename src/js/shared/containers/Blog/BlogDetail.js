@@ -23,7 +23,6 @@ class BlogDetail extends Component {
 
 	render() {
 		const { blog } = this.props;
-		console.log(blog);
 		return (
 			<article>
 				<Helmet
