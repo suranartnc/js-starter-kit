@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -22,8 +23,15 @@ class BlogDetail extends Component {
 
 	render() {
 		const { blog } = this.props;
+		console.log(blog);
 		return (
 			<article>
+				<Helmet
+				    title={ blog.title }
+				    meta={[
+				        {"name": "description", "content": "add description here..."}
+				    ]}
+				/>
 				<h1>{blog.title}</h1>
 				<div dangerouslySetInnerHTML={{__html: blog.body}} />
 			</article>
