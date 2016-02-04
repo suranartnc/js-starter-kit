@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 
+if (process.env.BROWSER) {
+	require('./App.scss');
+}
+
 export default class App extends Component {
 	render() {
 		return (

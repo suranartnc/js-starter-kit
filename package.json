@@ -17,10 +17,15 @@
   },
   "homepage": "https://github.com/suranartnc/js-starter-kit#readme",
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "babel-plugin-react-transform": "^2.0.0",
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.4.2",
     "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.2.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
     "webpack": "^1.12.11",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.6.4"
